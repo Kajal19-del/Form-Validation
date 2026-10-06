@@ -6,6 +6,12 @@
     padding: 0;
 }
 
+:root {
+    --success-color: #38E54D;
+    --warning-color: #F62440;
+    --focus-color: #2373F4;
+}
+
 body {
     background-color: #f9fafb;
     font-family: 'Pilant', sans-serif;
@@ -54,19 +60,20 @@ h2 {
 
 .form-control input:focus {
     outline: 0;
-    border-color: blue;
+    border-color: var(--focus-color);
 }
 
 .form-control.success input {
-    border-color:green;
+    border-color: var(--success-color);
 }
 
 .form-control.error input {
-    border-color: red;
+    border-color: var(--warning-color);
 }
 
 .form-control small {
-    color: red;
+    color: var(--warning-color);
+    visibility: hidden;
 }
 
 .form button {
