@@ -19,6 +19,14 @@ function showSuccess (input) {
     formControl.className = 'form-control success'
 }
 
+// Check email is valid or not
+function isEmailValid (email) {
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    return re.test(String(email).toLocaleLowerCase());
+
+}
+
 // Evernt Listener
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -31,6 +39,8 @@ form.addEventListener('submit', function (e) {
 
     if (email.value === '') {
         showError(email, 'Email is required');
+    } else if (!isEmailValid(email.value)) {
+        showError(email, 'email is not valid')
     } else {
         showSuccess(email)
     } 
